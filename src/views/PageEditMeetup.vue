@@ -1,6 +1,6 @@
 <template>
   <LayoutMeetupForm :title=title>
-    <MeetupForm v-if='meetup' :meetup='meetup' />
+    <MeetupForm v-if='meetup' :meetup='meetup' submitText="Сохранить" @submit="submit" @cancel="cancel" />
     <UiContainer v-else>
       <UiAlert>Загрузка...</UiAlert>
     </UiContainer>
@@ -50,6 +50,7 @@ export default {
   },
 
   setup(props) {
+    const router = useRouter();
     // TO DO: <title> "Редактирование митапа | Meetups"
     const title = "Редактирование митапа"
     assignTitle(title)
@@ -101,7 +102,6 @@ export default {
       goToMeetupPage();
     };
     const goToMeetupPage = () => {
-      const router = useRouter();
       router.push({ name: 'meetup', meetupId: props.meetupId });
     };
 

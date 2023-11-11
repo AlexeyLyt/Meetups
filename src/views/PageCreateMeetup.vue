@@ -1,6 +1,6 @@
 <template>
   <LayoutMeetupForm title='Создание митапа'>
-    <MeetupForm :meetup="meetup" @submit="submit" @cancel="cancel" />
+    <MeetupForm :meetup="meetup" submitText="Создать" @submit="submit" @cancel="cancel" />
   </LayoutMeetupForm>
 </template>
 
